@@ -1,0 +1,16 @@
+{
+  "name": "logient-workspace",
+  "version": "1.0.0",
+  "description": "This is a workspace that contains the packages for running the application.",
+  "main": "index.js",
+  "scripts": {
+    "api": "pnpm --filter @logient/api",
+    "dev": "pnpm --recursive --parallel --stream run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "volta": {
+    "node": "18.15.0"
+  }
+}

@@ -5,7 +5,7 @@ import User from '../../Models/User'
 
 export default class SecurityController {
 
-    public async signup({request, response}: HttpContextContract) {
+    public async signup({ request, response }: HttpContextContract) {
         const validations = await schema.create({
             email: schema.string({}, [rules.email(), rules.unique({ table: 'users', column: 'email' })]),
             password: schema.string({}, [rules.confirmed()]),
@@ -21,7 +21,7 @@ export default class SecurityController {
 
         try {
             const token = await auth.use('api').attempt(email, password, { expiresIn: '24hours' })
-            return token.toJSON()
+            return { payload: token.toJSON(), userId: email }
         } catch {
             return response.unauthorized('Invalid credentials')
         }

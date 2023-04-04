@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "api": "pnpm --filter @logient/api",
+    "front": "pnpm --filter @logient/front",
     "dev": "pnpm --recursive --parallel --stream run dev"
   },
   "keywords": [],
